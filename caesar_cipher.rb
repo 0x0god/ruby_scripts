@@ -1,10 +1,18 @@
 # ascii = "Test".chars.map(&:ord);
 
-ascii = "test".chars.map { |c| c.ord };
+def caeserfunc (string, shiftnum)
+    ascii = string.chars.map{|i| i.ord};
+    shiftnum = ascii.map{|i|i+shiftnum};
+    shiftnum.map{|i|i.chr}.join;
+end
 
-shifted = ascii.map{|c| c + 5};
+# ascii = "test".chars.map { |c| c.ord };
 
-bor = shifted.map {|c| c.chr}.join;
+# shifted = ascii.map{|c| c + 5};
+
+# bor = shifted.map {|c| c.chr}.join;
 
 # puts shifted
 # puts bor
+
+# puts caeserfunc("LolsMynameiscool", 5);
