@@ -1,18 +1,23 @@
-# ascii = "Test".chars.map(&:ord);
-
-def caeserfunc (string, shiftnum)
-    ascii = string.chars.map{|i| i.ord};
-    shiftnum = ascii.map{|i|i+shiftnum};
-    shiftnum.map{|i|i.chr}.join;
-end
-
-# ascii = "test".chars.map { |c| c.ord };
-
-# shifted = ascii.map{|c| c + 5};
-
-# bor = shifted.map {|c| c.chr}.join;
-
-# puts shifted
-# puts bor
-
-# puts caeserfunc("LolsMynameiscool", 5);
+def caesar_cipher(text, shift)
+    for i in 0...text.length do
+      char_code = text[i].ord
+      
+      (a, z) = case char_code
+               when 97..122 then [97, 122]   # a-z
+               when 65..90  then [65, 90]    # A-Z
+               else next
+      end
+  
+      rotate = shift > 0 ? 26 : -26
+  
+      char_code += shift
+      char_code -= rotate unless char_code.between?(a, z)
+  
+      text[i] = char_code.chr
+    end
+  end
+  
+  message = "Omae wa mou shindeiru. -NANI!?!!"
+  
+  caesar_cipher(message, 21)
+  
