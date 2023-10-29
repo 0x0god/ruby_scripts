@@ -1,22 +1,15 @@
-# frozen_string_literal: true
-
-def bubble_sort(arr)
-  (0...arr.length).each do |i|
-    sorted = true
-
-    (0...(arr.length - i - 1)).each do |k|
-      if arr[k] > arr[k + 1]
-        arr[k], arr[k + 1] = arr[k + 1], arr[k]
-        sorted = false
+def bubble_sort(u_array)
+  u_array.length.times do
+    (0...u_array.length - 1).each do |i|
+      if (u_array[i] > u_array[i + 1])
+        temp_index = u_array[i]
+        u_array[i] = u_array[i+1]
+        u_array[i+1] = temp_index
       end
     end
-
-    break if sorted
   end
-  arr
+  u_array.to_s
 end
 
-data = [10, 2, 6, 2, 1, 5, 8, 6, 0, 2, 8, 9]
-
-p bubble_sort(data)
-# => [0, 1, 2, 2, 2, 5, 6, 6, 8, 8, 9, 10]
+new_arr = [3,2,1,4,2]
+puts bubble_sort(new_arr)
